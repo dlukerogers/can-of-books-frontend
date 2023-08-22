@@ -1,33 +1,89 @@
-# Project Name
+# Can of Books
 
-**Author**: Team Member Names Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: Luke Rogers, Adnan Mohamud
+**Version**: 1.0.1
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This application, named "Can of Books," is designed to help users keep track of books that have had a significant impact on them and discover new books recommended by others. Books have the power to transform lives through education, entertainment, and personal growth. The purpose of building this app goes beyond fulfilling the requirements of a class assignment; it aims to provide a platform where users can share and explore life-changing books, creating a community centered around literature and personal development.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+To build and run this app on your own machine, follow these steps:
+Clone the repository to your local machine.
+Navigate to the project directory using the command line.
+Install the necessary dependencies by running: npm install
+Create a MongoDB database and obtain the connection URI.
+Rename the .env.sample file to .env and add your MongoDB connection URI.
+Start the Express server by running: npm start
+Navigate to the provided URL (usually http://localhost:3000) in your web browser.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+The Can of Books app is built using the MERN stack (MongoDB, Express, React, Node.js). Here's an overview of the application design:
+Front-end: The user interface is developed using React, allowing users to interact with the app's features.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+8/22/2023 [Version 1.0.0] - Created Repository
+8/22/2023 [Version 1.0.1] - Filled out Readme
 
 ## Estimates
 
-Name of feature: ________________________________
+Name of feature: Set up your repositories
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 45 minutes
 
-Start time: _____
+Start time: 1:20pm CST
 
-Finish time: _____
+Finish time: 2:01pm CST
 
-Actual time needed to complete: _____
+Actual time needed to complete: 41 minutes
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+### Credit
+
+### Collaborations
+
+#### Team Agreement
+
+##### Logistical
+
+* What hours will you be available to communicate?
+  * 11am - 6pm CST, 9am - 4pm PST
+* What platform will you use to communicate (ie. Slack, phone …)?
+  * Slack, Remo
+* How often will you take breaks?
+  * Once an hour
+* What is your plan if you start to fall behind?
+  * Sacrifice free time to catch up
+  * Try to pace ourselves
+  * Get help from TA’s whenever available
+
+##### Cooperative
+
+* Make a list of each parson’s strengths.
+  * Adnan: Time management, Know to ask for help when needed, Express, node.js, connecting backend to front end
+  * Luke: React, Building APIs, Project management, CSS
+* How can you best utilize these strengths in the development of your application?
+  * Adnan is the navigator for the backend
+  * Luke is the navigator for the frontend
+* In what areas do you each want to develop greater strength?
+  * Adnan: React components
+  * Luke: Understanding the backend and memorizing steps to build a server
+* Knowing that every person in your team needs to understand the code, how do you plan to approach the day-to-day development?
+  * Have a brief standup to discuss what we need to do for the day and how we will go about knocking out our tasks
+
+##### Conflict Resolution
+
+* What will your team do if one person is pulling all the weight while the other person is not contributing?
+  * Politely let them know to start pulling their weight
+  * Tell the instructor if they still don’t
+* What will your team do if one person is taking over the project and not letting the other member contribute?
+  * Politely let them know that they need to let others have the chance to create and learn
+  * Get others involved
+* How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level?
+  * Having patience with each other
+  * Help each other learn
+  * Build on each other’s strengths
