@@ -1,7 +1,7 @@
 # Can of Books
 
 **Author**: Luke Rogers, Adnan Mohamud
-**Version**: 1.0.1
+**Version**: 1.0.2
 
 ## Overview
 
@@ -27,6 +27,7 @@ Front-end: The user interface is developed using React, allowing users to intera
 
 8/22/2023 [Version 1.0.0] - Created Repository
 8/22/2023 [Version 1.0.1] - Filled out Readme
+8/23/2023 [Version 1.1.0] - Connected to server
 
 ## Estimates
 

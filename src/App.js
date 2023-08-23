@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import BestBooks from './BestBooks';
@@ -7,16 +8,40 @@ import {
   BrowserRouter as Router,
   Routes,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
+
+let SERVER = process.env.REACT_APP_SERVER;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+    };
+  }
+
+  getBooks = async () => {
+    try {
+      let results = await axios.get(`${SERVER}/books`);
+      this.setState({
+        books: results.data,
+      });
+    } catch(error) {
+      console.log('We have an error;', error.response.data);
+    }
+  };
+
+  componentDidMount() {
+    this.getBooks();
+  }
+
   render() {
     return (
       <>
         <Router>
           <Header />
           <Routes>
-            <Route 
+            <Route
               exact path="/"
               element={<BestBooks />}
             >
@@ -26,7 +51,7 @@ class App extends React.Component {
           <Footer />
         </Router>
       </>
-    )
+    );
   }
 }
 
