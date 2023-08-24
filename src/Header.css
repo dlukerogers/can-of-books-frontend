@@ -1,0 +1,12 @@
+.nav-link {
+  color:lightgrey;
+  margin-right: 1rem;
+}
+
+.nav-link:visited {
+  color: lightgray;
+}
+
+.nav-link:hover {
+  color: white;
+}
