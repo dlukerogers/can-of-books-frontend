@@ -28,6 +28,7 @@ Front-end: The user interface is developed using React, allowing users to intera
 8/22/2023 [Version 1.0.0] - Created Repository
 8/22/2023 [Version 1.0.1] - Filled out Readme
 8/23/2023 [Version 1.1.0] - Connected to server
+8/23/2023 [Version 1.2.0] - Created About and home pages
 
 ## Estimates
 
@@ -40,6 +41,16 @@ Start time: 1:20pm CST
 Finish time: 2:01pm CST
 
 Actual time needed to complete: 41 minutes
+
+Name of feature: Book Component
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 2:39pm CST
+
+Finish time: 7:09pm CST
+
+Actual time needed to complete: 4 hours 30 minutes
 
 ## Credit and Collaborations
 
