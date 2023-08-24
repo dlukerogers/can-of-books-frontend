@@ -8,10 +8,10 @@ import './About.css';
 class Profile extends Component {
   render() {
     return (
-      <div className="card-div">
-        <Card className="card-body">
-          <Card.Img variant="top" src={adnan} className="card-img-top" />
-          <Card.Body className="card-body-text">
+      <div className='card-div'>
+        <Card className='card-body'>
+          <Card.Img variant='top' src={adnan} className='card-img-top'/>
+          <Card.Body className='card-body-text'>
             <Card.Title>Adnan Mohamud</Card.Title>
             <Card.Text>
               "Sometimes I wonder if the whole world's gone crazy. What's the
@@ -21,17 +21,17 @@ class Profile extends Component {
               - Jeff Kinney, <span>Diary of a Wimpy Kid</span>
             </Card.Text>
             <Button
-              variant="primary"
-              href="https://github.com/adnanm123"
-              target="_blank"
+              variant='primary'
+              href='https://github.com/adnanm123'
+              target='_blank'
             >
               Go to Adnan's GitHub Profile
             </Button>
           </Card.Body>
         </Card>
-        <Card className="card-body">
-          <Card.Img variant="top" src={luke} className="card-img-top" />
-          <Card.Body className="card-body-text">
+        <Card className='card-body'>
+          <Card.Img variant='top' src={luke} className='card-img-top'/>
+          <Card.Body className='card-body-text'>
             <Card.Title>Luke Rogers</Card.Title>
             <Card.Text>
               "Strive to do small things well. Be a doer and a
@@ -44,9 +44,9 @@ class Profile extends Component {
               - David H. Hackworth, <span>About Face</span>
             </Card.Text>
             <Button
-              variant="primary"
-              href="https://github.com/dlukerogers"
-              target="_blank"
+              variant='primary'
+              href='https://github.com/dlukerogers'
+              target='_blank'
             >
               Go to Luke's GitHub Profile
             </Button>
