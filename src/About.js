@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import adnan from "./img/adnan.jpeg";
-import luke from "./img/luke.jpeg";
-import "./About.css";
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import adnan from './img/adnan.jpeg';
+import luke from './img/luke.jpeg';
+import './About.css';
 
 class Profile extends Component {
   render() {
