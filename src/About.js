@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import adnan from "./img/adnan.jpeg";
 import luke from "./img/luke.jpeg";
-import './About.css';
+import "./About.css";
 
 class Profile extends Component {
   render() {
@@ -16,9 +16,17 @@ class Profile extends Component {
             <Card.Text>
               "Sometimes I wonder if the whole world's gone crazy. What's the
               point of competing if you don't even wanna win?"
-              <p>- Jeff Kinney, <span>Diary of a Wimpy Kid</span></p>
             </Card.Text>
-            <Button variant="primary" href="https://github.com/adnanm123" target="_blank">Go to Adnan's GitHub Profile</Button>
+            <Card.Text>
+              - Jeff Kinney, <span>Diary of a Wimpy Kid</span>
+            </Card.Text>
+            <Button
+              variant="primary"
+              href="https://github.com/adnanm123"
+              target="_blank"
+            >
+              Go to Adnan's GitHub Profile
+            </Button>
           </Card.Body>
         </Card>
         <Card className="card-body">
@@ -31,9 +39,17 @@ class Profile extends Component {
               qualities in a leader—but you must also put your feet up and
               think. Strive for self-improvement through constant
               self-evaluation."
-              <p>- David H. Hackworth, <span>About Face</span></p>
             </Card.Text>
-            <Button variant="primary" href="https://github.com/dlukerogers" target="_blank">Go to Luke's GitHub Profile</Button>
+            <Card.Text>
+              - David H. Hackworth, <span>About Face</span>
+            </Card.Text>
+            <Button
+              variant="primary"
+              href="https://github.com/dlukerogers"
+              target="_blank"
+            >
+              Go to Luke's GitHub Profile
+            </Button>
           </Card.Body>
         </Card>
       </div>
