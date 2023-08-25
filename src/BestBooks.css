@@ -30,3 +30,9 @@ p {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
+.delete-button {
+  z-index: 5;
+  color: red;
+  padding-left: 5rem;
+}

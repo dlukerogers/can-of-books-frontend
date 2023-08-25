@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
-import './BestBooks.css';
-import {Button, Container, Form} from 'react-bootstrap';
 import DeleteButton from './DeleteButton';
+import AddBookButton from './AddBookButton';
+import BookFormModal from './BookFormModal';
+import './BestBooks.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
+      showBook: false
     };
   }
 
@@ -54,6 +56,7 @@ class BestBooks extends React.Component {
       console.log('We have an error;', error.response.data);
     }
   }
+  
 
   handleBookSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +65,20 @@ class BestBooks extends React.Component {
       description: e.target.description.value,
       status: e.target.status.value
     };
+    console.log(newBook);
     this.postBooks(newBook);
+  }
+
+  showBookForm = () => {
+    this.setState ({
+      showBook: true
+    })
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showBook: false
+    });
   }
 
   componentDidMount() {
@@ -91,36 +107,21 @@ class BestBooks extends React.Component {
                     <p>{book.description}</p>
                     <p>{book.status}</p>
                   </Carousel.Caption>
-                  <DeleteButton
-                    books={this.state.books}
+                  <DeleteButton className='delete-button'
+                    book={book}
                     deleteBooks={this.deleteBooks}
                   />
                 </Carousel.Item>
               ))}
             </Carousel>
-            <Container className="mt-5">
-              <Form onSubmit={this.handleBookSubmit}>
-                <Form.Group controlId="title">
-                  <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group controlId="description">
-                  <Form.Label>Description</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Select name="status" aria-label="Completed">
-                  <option>Choose a status</option>
-                  <option value="Not started">Not started</option>
-                  <option value="In progress">In progress</option>
-                  <option value="Completed">Completed</option>
-                </Form.Select>
-                <Button type="submit">Add Book</Button>
-              </Form>
-            </Container>
+            {/* <AddBookButton
+              handleBookSubmit = {this.handleBookSubmit}
+            /> */}
           </div>
         ) : (
           <h3 id='noDataP'>No Books Found :</h3>
         )}
+        {this.state.showBook ? <BookFormModal handleBookSubmit = {this.handleBookSubmit} handleCloseModal= {this.handleCloseModal} showBookForm={this.showBookForm}/> : <AddBookButton showBookForm={this.showBookForm}/>}
       </>
     );
   }

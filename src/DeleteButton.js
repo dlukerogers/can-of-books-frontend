@@ -5,7 +5,7 @@ class DeleteButton extends React.Component {
   render() {
     return(
       <Button 
-        variant='dark' 
+        variant='dark' className='delete-button'
         onClick={() => this.props.deleteBooks(this.props.book._id)}
       >
         Delete Book
