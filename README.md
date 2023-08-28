@@ -1,7 +1,7 @@
 # Can of Books
 
 **Author**: Luke Rogers, Adnan Mohamud
-**Version**: 2.0.0
+**Version**: 2.0.1
 
 ## Overview
 
@@ -30,6 +30,7 @@ Front-end: The user interface is developed using React, allowing users to intera
 8/23/2023 [Version 1.1.0] - Connected to server
 8/23/2023 [Version 1.2.0] - Created About and home pages
 8/24/2023 [Version 2.0.0] - Created Add Book form and Delete Book button (Part 1)
+8/28/2023 [Version 2.0.1] - Fixed add and delete button bugs
 
 ## Estimates
 
@@ -57,21 +58,21 @@ Name of feature: Create
 
 Estimate of time needed to complete: 2 hours
 
-Start time:
+Start time: 6:14pm CST
 
-Finish time:
+Finish time: 7:48pm CST
 
-Actual time needed to complete:
+Actual time needed to complete: 1 hour 34 minutes
 
 Name of feature: Delete
 
 Estimate of time needed to complete: 2 hours
 
-Start time:
+Start time: 1:30pm PST
 
-Finish time:
+Finish time: 4:30pm PST
 
-Actual time needed to complete:
+Actual time needed to complete: 3 hours
 
 ## Credit and Collaborations
 
@@ -96,7 +97,7 @@ Actual time needed to complete:
 
 ##### Cooperative
 
-* Make a list of each parson’s strengths.
+* Make a list of each person’s strengths.
   * Adnan: Time management, Know to ask for help when needed, Express, node.js, connecting backend to front end
   * Luke: React, Building APIs, Project management, CSS
 * How can you best utilize these strengths in the development of your application?
