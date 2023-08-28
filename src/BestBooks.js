@@ -4,6 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import DeleteButton from './DeleteButton';
 import AddBookButton from './AddBookButton';
 import BookFormModal from './BookFormModal';
+import EditBookButton from './EditBookButton';
+import UpdateForm from './UpdateForm';
 import './BestBooks.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
@@ -12,7 +14,8 @@ class BestBooks extends React.Component {
     super(props);
     this.state = {
       books: [],
-      showBook: false
+      showBook: false,
+      showUpdateBook: false
     };
   }
 
@@ -56,6 +59,23 @@ class BestBooks extends React.Component {
       console.log('We have an error;', error.response.data);
     }
   }
+
+  putBooks = async (bookToUpdate) => {
+    try {
+      let url = `${SERVER}/books/${bookToUpdate._id}`;
+      let updatedBook =  await axios.put(url, bookToUpdate);
+      let updatedBooks = this.state.books.map(existingBook => {
+        return existingBook._id === bookToUpdate._id
+          ? updatedBook.data
+          : existingBook;
+      } )
+      this.setState({
+        books: updatedBooks
+      });
+    } catch (error) {
+      console.log('We have an error;', error.response.data);
+    }
+  }
   
   handleBookSubmit = (e) => {
     e.preventDefault();
@@ -69,15 +89,41 @@ class BestBooks extends React.Component {
     this.handleCloseModal();
   }
 
+  handleBookUpdate = (e) => {
+    e.preventDefault();
+    let updatedBook = {
+      title: e.target.title.value || this.book.title,
+      description: e.target.description.value || this.book.description,
+      status: e.target.status.value || this.book.status,
+      _id: this.book._id,
+      __v: this.book.__v
+    };
+    console.log(updatedBook);
+    this.putBooks(updatedBook);
+    this.handleCloseUpdateModal();
+  }
+
   showBookForm = () => {
     this.setState ({
       showBook: true
     })
   }
 
+  showUpdateForm = () => {
+    this.setState ({
+      showUpdateBook: true
+    })
+  }
+
   handleCloseModal = () => {
     this.setState({
       showBook: false
+    });
+  }
+
+  handleCloseUpdateModal = () => {
+    this.setState({
+      showUpdateBook: false
     });
   }
 
@@ -110,6 +156,7 @@ class BestBooks extends React.Component {
                     book={book}
                     deleteBooks= {this.deleteBooks}
                   />
+                  {this.state.showBook ? <UpdateForm handleBookUpdate = {this.handleBookUpdate} handleCloseUpdateModal= {this.handleCloseUpdateModal} showUpdateForm={this.showUpdateForm} book={book}/> : <EditBookButton showUpdateForm={this.showUpdateForm} book = {book} />}
                   </Carousel.Caption>
                   
                 </Carousel.Item>
