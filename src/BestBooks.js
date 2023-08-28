@@ -1,16 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
-import './BestBooks.css';
-import {Button, Container, Form} from 'react-bootstrap';
 import DeleteButton from './DeleteButton';
+import AddBookButton from './AddBookButton';
+import BookFormModal from './BookFormModal';
+import './BestBooks.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
 class BestBooks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: []
+      books: [],
+      showBook: false
     };
   }
 
@@ -45,16 +47,16 @@ class BestBooks extends React.Component {
     try {
       let url = `${SERVER}/books/${id}`;
       await axios.delete(url);
-      // this.getBooks();
       let updatedBooks = this.state.books.filter(book => book._id !== id);
       this.setState({
         books: updatedBooks
       });
+      window.location.reload();
     } catch(error) {
       console.log('We have an error;', error.response.data);
     }
   }
-
+  
   handleBookSubmit = (e) => {
     e.preventDefault();
     let newBook = {
@@ -62,10 +64,24 @@ class BestBooks extends React.Component {
       description: e.target.description.value,
       status: e.target.status.value
     };
+    console.log(newBook);
     this.postBooks(newBook);
+    this.handleCloseModal();
   }
 
-  componentDidMount() {
+  showBookForm = () => {
+    this.setState ({
+      showBook: true
+    })
+  }
+
+  handleCloseModal = () => {
+    this.setState({
+      showBook: false
+    });
+  }
+
+  componentDidMount = async () => {
     this.getBooks();
   }
 
@@ -79,48 +95,34 @@ class BestBooks extends React.Component {
         {this.state.books.length ? (
           <div>
             <Carousel id='bookCarousel' data-bs-theme='dark'>
-              {this.state.books.length && this.state.books.map(book => (
+              {this.state.books.map(book => (
                 <Carousel.Item id='carouselItem' key={book._id}>
                   <img
                     className='d-block w-100'
-                    src='holder.js/800x400?text=First slide&bg=f5f5f5'
                     alt={book.title}
+                    height = '300px'
                   />
                   <Carousel.Caption>
                     <h5>{book.title}</h5>
                     <p>{book.description}</p>
                     <p>{book.status}</p>
-                  </Carousel.Caption>
-                  <DeleteButton
-                    books={this.state.books}
-                    deleteBooks={this.deleteBooks}
+                  <DeleteButton className='delete-button'
+                    book={book}
+                    deleteBooks= {this.deleteBooks}
                   />
+                  </Carousel.Caption>
+                  
                 </Carousel.Item>
               ))}
             </Carousel>
-            <Container className="mt-5">
-              <Form onSubmit={this.handleBookSubmit}>
-                <Form.Group controlId="title">
-                  <Form.Label>Title</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Group controlId="description">
-                  <Form.Label>Description</Form.Label>
-                  <Form.Control type="text" />
-                </Form.Group>
-                <Form.Select name="status" aria-label="Completed">
-                  <option>Choose a status</option>
-                  <option value="Not started">Not started</option>
-                  <option value="In progress">In progress</option>
-                  <option value="Completed">Completed</option>
-                </Form.Select>
-                <Button type="submit">Add Book</Button>
-              </Form>
-            </Container>
+            {/* <AddBookButton
+              handleBookSubmit = {this.handleBookSubmit}
+            /> */}
           </div>
         ) : (
           <h3 id='noDataP'>No Books Found :</h3>
         )}
+        {this.state.showBook ? <BookFormModal handleBookSubmit = {this.handleBookSubmit} handleCloseModal= {this.handleCloseModal} showBookForm={this.showBookForm}/> : <AddBookButton showBookForm={this.showBookForm}/>}
       </>
     );
   }
