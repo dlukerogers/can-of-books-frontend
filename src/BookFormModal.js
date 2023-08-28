@@ -1,4 +1,5 @@
 import React from "react";
+import './BookFormModal.css';
 import { Button, Form, Modal } from "react-bootstrap";
 
 class BookFormModal extends React.Component {
@@ -6,7 +7,9 @@ class BookFormModal extends React.Component {
     return (
       <Modal show={this.props.showBookForm}
       onHide={this.props.handleCloseModal}
-      size='lg'>
+      size='lg'
+      className="book-form-modal"
+      >
         <Form onSubmit={this.props.handleBookSubmit}>
           <Form.Group controlId="title">
             <Form.Label>Title</Form.Label>
@@ -22,7 +25,7 @@ class BookFormModal extends React.Component {
             <option value="In progress">In progress</option>
             <option value="Completed">Completed</option>
           </Form.Select>
-          <Button type="submit">Add Book</Button>
+          <Button type="submit" >Add Book</Button>
         </Form>
       </Modal>
     );

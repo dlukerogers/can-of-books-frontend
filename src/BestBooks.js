@@ -47,17 +47,16 @@ class BestBooks extends React.Component {
     try {
       let url = `${SERVER}/books/${id}`;
       await axios.delete(url);
-      // this.getBooks();
       let updatedBooks = this.state.books.filter(book => book._id !== id);
       this.setState({
         books: updatedBooks
       });
+      window.location.reload();
     } catch(error) {
       console.log('We have an error;', error.response.data);
     }
   }
   
-
   handleBookSubmit = (e) => {
     e.preventDefault();
     let newBook = {
@@ -67,6 +66,7 @@ class BestBooks extends React.Component {
     };
     console.log(newBook);
     this.postBooks(newBook);
+    this.handleCloseModal();
   }
 
   showBookForm = () => {
@@ -81,7 +81,7 @@ class BestBooks extends React.Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount = async () => {
     this.getBooks();
   }
 
@@ -95,22 +95,23 @@ class BestBooks extends React.Component {
         {this.state.books.length ? (
           <div>
             <Carousel id='bookCarousel' data-bs-theme='dark'>
-              {this.state.books.length && this.state.books.map(book => (
+              {this.state.books.map(book => (
                 <Carousel.Item id='carouselItem' key={book._id}>
                   <img
                     className='d-block w-100'
-                    src='holder.js/800x400?text=First slide&bg=f5f5f5'
                     alt={book.title}
+                    height = '300px'
                   />
                   <Carousel.Caption>
                     <h5>{book.title}</h5>
                     <p>{book.description}</p>
                     <p>{book.status}</p>
-                  </Carousel.Caption>
                   <DeleteButton className='delete-button'
                     book={book}
-                    deleteBooks={this.deleteBooks}
+                    deleteBooks= {this.deleteBooks}
                   />
+                  </Carousel.Caption>
+                  
                 </Carousel.Item>
               ))}
             </Carousel>
