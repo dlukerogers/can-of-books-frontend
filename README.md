@@ -1,7 +1,7 @@
 # Can of Books
 
 **Author**: Luke Rogers, Adnan Mohamud
-**Version**: 2.0.1
+**Version**: 3.0.1
 
 ## Overview
 
@@ -31,6 +31,8 @@ Front-end: The user interface is developed using React, allowing users to intera
 8/23/2023 [Version 1.2.0] - Created About and home pages
 8/24/2023 [Version 2.0.0] - Created Add Book form and Delete Book button (Part 1)
 8/28/2023 [Version 2.0.1] - Fixed add and delete button bugs
+8/29/2023 [Version 3.0.0] - Connected update task to backend server
+8/29/2023 [Version 3.0.1] - Fixed Edit button, added CSS
 
 ## Estimates
 

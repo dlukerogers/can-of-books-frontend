@@ -4,6 +4,7 @@ import './EditBookButton.css'; // Import your custom styles for the button
 
 class EditBookButton extends React.Component {
   render() {
+    console.log(this.props.book._id)
     return (
       <Button
         variant="secondary"

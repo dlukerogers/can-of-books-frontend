@@ -6,6 +6,7 @@ import AddBookButton from './AddBookButton';
 import BookFormModal from './BookFormModal';
 import EditBookButton from './EditBookButton';
 import UpdateForm from './UpdateForm';
+import bookImg from './img/book.png';
 import './BestBooks.css';
 
 let SERVER = process.env.REACT_APP_SERVER;
@@ -109,8 +110,9 @@ class BestBooks extends React.Component {
     })
   }
 
-  showUpdateForm = () => {
+  showUpdateForm = (bookToBeUpdated) => {
     this.setState ({
+      bookToBeUpdated,
       showUpdateBook: true
     })
   }
@@ -137,39 +139,32 @@ class BestBooks extends React.Component {
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
-        {this.state.books.length ? (
           <div>
+          {this.state.books.length ? (
             <Carousel id='bookCarousel' data-bs-theme='dark'>
               {this.state.books.map(book => (
                 <Carousel.Item id='carouselItem' key={book._id}>
-                  <img
-                    className='d-block w-100'
-                    alt={book.title}
-                    height = '300px'
-                  />
+                  <img className='backgroundImg' src={bookImg} alt='bookBackground'/>
                   <Carousel.Caption>
                     <h5>{book.title}</h5>
                     <p>{book.description}</p>
-                    <p>{book.status}</p>
-                  <DeleteButton className='delete-button'
-                    book={book}
-                    deleteBooks= {this.deleteBooks}
-                  />
-                  {this.state.showBook ? <UpdateForm handleBookUpdate = {this.handleBookUpdate} handleCloseUpdateModal= {this.handleCloseUpdateModal} showUpdateForm={this.showUpdateForm} book={book}/> : <EditBookButton showUpdateForm={this.showUpdateForm} book = {book} />}
+                    <p id='secondp'>Status: {book.status}</p>
+                    <DeleteButton className='delete-button'
+                      book={book}
+                      deleteBooks= {this.deleteBooks}
+                      />
+                    {this.state.showUpdateBook ? <UpdateForm handleBookUpdate = {this.handleBookUpdate} handleCloseUpdateModal= {this.handleCloseUpdateModal} showUpdateForm={this.showUpdateForm} book={book}/> : <EditBookButton showUpdateForm={this.showUpdateForm} book={book} />}
                   </Carousel.Caption>
                   
                 </Carousel.Item>
               ))}
             </Carousel>
-            {/* <AddBookButton
-              handleBookSubmit = {this.handleBookSubmit}
-            /> */}
-          </div>
-        ) : (
-          <h3 id='noDataP'>No Books Found :</h3>
-        )}
-        {this.state.showBook ? <BookFormModal handleBookSubmit = {this.handleBookSubmit} handleCloseModal= {this.handleCloseModal} showBookForm={this.showBookForm}/> : <AddBookButton showBookForm={this.showBookForm}/>}
+          ) : (
+            <h3 id='noDataP'>No Books Found :</h3>
+          )}
+          {this.state.showBook ? <BookFormModal handleBookSubmit = {this.handleBookSubmit} handleCloseModal= {this.handleCloseModal} showBookForm={this.showBookForm}/> : <AddBookButton showBookForm={this.showBookForm}/>}
+        </div>
+        <div className='spacer'>.</div>
       </>
     );
   }
