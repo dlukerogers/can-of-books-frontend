@@ -16,7 +16,8 @@ class BestBooks extends React.Component {
     this.state = {
       books: [],
       showBook: false,
-      showUpdateBook: false
+      showUpdateBook: false,
+      bookToUpdate: null,
     };
   }
 
@@ -37,7 +38,6 @@ class BestBooks extends React.Component {
     try{
       let url = `${SERVER}/books`;
       let createdBook = await axios.post(url, newBook);
-      console.log(createdBook.data);
       // this.getBooks();
       this.setState({
         books: [...this.state.books, createdBook.data]
@@ -85,23 +85,8 @@ class BestBooks extends React.Component {
       description: e.target.description.value,
       status: e.target.status.value
     };
-    console.log(newBook);
     this.postBooks(newBook);
     this.handleCloseModal();
-  }
-
-  handleBookUpdate = (e) => {
-    e.preventDefault();
-    let updatedBook = {
-      title: e.target.title.value || this.book.title,
-      description: e.target.description.value || this.book.description,
-      status: e.target.status.value || this.book.status,
-      _id: this.book._id,
-      __v: this.book.__v
-    };
-    console.log(updatedBook);
-    this.putBooks(updatedBook);
-    this.handleCloseUpdateModal();
   }
 
   showBookForm = () => {
@@ -112,7 +97,7 @@ class BestBooks extends React.Component {
 
   showUpdateForm = (bookToBeUpdated) => {
     this.setState ({
-      bookToBeUpdated,
+      bookToUpdate: bookToBeUpdated,
       showUpdateBook: true
     })
   }
@@ -149,11 +134,12 @@ class BestBooks extends React.Component {
                     <h5>{book.title}</h5>
                     <p>{book.description}</p>
                     <p id='secondp'>Status: {book.status}</p>
+                    <p>{book._id}</p>
                     <DeleteButton className='delete-button'
                       book={book}
                       deleteBooks= {this.deleteBooks}
                       />
-                    {this.state.showUpdateBook ? <UpdateForm handleBookUpdate = {this.handleBookUpdate} handleCloseUpdateModal= {this.handleCloseUpdateModal} showUpdateForm={this.showUpdateForm} book={book}/> : <EditBookButton showUpdateForm={this.showUpdateForm} book={book} />}
+                    {this.state.showUpdateBook ? <UpdateForm putBooks={this.putBooks} handleCloseUpdateModal= {this.handleCloseUpdateModal} showUpdateForm={this.showUpdateForm} book={this.state.bookToUpdate}/> : <EditBookButton showUpdateForm={this.showUpdateForm} book={book} />}
                   </Carousel.Caption>
                   
                 </Carousel.Item>
