@@ -1,7 +1,7 @@
 # Can of Books
 
 **Author**: Luke Rogers, Adnan Mohamud
-**Version**: 3.0.1
+**Version**: 3.0.2
 
 ## Overview
 
@@ -33,6 +33,7 @@ Front-end: The user interface is developed using React, allowing users to intera
 8/28/2023 [Version 2.0.1] - Fixed add and delete button bugs
 8/29/2023 [Version 3.0.0] - Connected update task to backend server
 8/29/2023 [Version 3.0.1] - Fixed Edit button, added CSS
+8/29/2023 [Version 3.0.2] - Fixed Update form bugs
 
 ## Estimates
 
@@ -76,9 +77,21 @@ Finish time: 4:30pm PST
 
 Actual time needed to complete: 3 hours
 
+Name of feature: Update
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 11:57am PST
+
+Finish time: 5:20pm PST
+
+Actual time needed to complete: 5 hours 23 minutes
+
 ## Credit and Collaborations
 
 ### Credit
+
+Tony Regalado, Brandon Mizutani
 
 ### Collaborations
 
