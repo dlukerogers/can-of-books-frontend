@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { withAuth0 } from '@auth0/auth0-react';
 import Carousel from 'react-bootstrap/Carousel';
 import DeleteButton from './DeleteButton';
 import AddBookButton from './AddBookButton';
@@ -23,13 +24,27 @@ class BestBooks extends React.Component {
   /* TODO: Make a GET request to your API to fetch all the books from the database  */
 
   getBooks = async () => {
-    try {
-      let results = await axios.get(`${SERVER}/books`);
-      this.setState({
-        books: results.data,
-      });
-    } catch (error) {
-      console.log('We have an error;', error.response.data);
+    if (this.props.auth0.isAuthenticated) {
+      try {
+        // get token
+        const res = await this.props.auth0.getIdTokenClaims();
+        // extract the raw token
+        const jwt = res.__raw;
+        console.log(jwt);
+        const config = {
+          method: 'get', 
+          baseURL: SERVER,
+          url: '/books',
+          headers: {"Authorization" : `Bearer ${jwt}`}
+        }
+        const results = await axios(config);
+        // let results = await axios.get(`${SERVER}/books`);
+        this.setState({
+          books: results.data,
+        });
+      } catch (error) {
+        console.log('We have an error;', error.response.data);
+      }
     }
   };
 
@@ -135,7 +150,7 @@ class BestBooks extends React.Component {
 
   render() {
     /* TODO: render all the books in a Carousel */
-
+    console.log(this.props.auth0.user);
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
@@ -170,4 +185,4 @@ class BestBooks extends React.Component {
   }
 }
 
-export default BestBooks;
+export default withAuth0(BestBooks);

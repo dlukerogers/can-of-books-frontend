@@ -5,7 +5,7 @@ import adnan from './img/adnan.jpeg';
 import luke from './img/luke.jpeg';
 import './About.css';
 
-class Profile extends Component {
+class About extends Component {
   render() {
     return (
       <div className='card-div'>
@@ -57,4 +57,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default About;
