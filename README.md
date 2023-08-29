@@ -91,6 +91,8 @@ Actual time needed to complete: 5 hours 23 minutes
 
 ### Credit
 
+Tony Regalado, Brandon Mizutani
+
 ### Collaborations
 
 #### Team Agreement
