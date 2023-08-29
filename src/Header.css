@@ -10,3 +10,21 @@
 .nav-link:hover {
   color: white;
 }
+
+.navBarImg {
+  display: inline;
+  height: 10rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  border-radius: 1rem;
+}
+
+.navBarTitle {
+  text-align: left;
+  font-size: 4rem;
+}
+
+.navItems {
+  text-align: right;
+  /* margin-left:  */
+}

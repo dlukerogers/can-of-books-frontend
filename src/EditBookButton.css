@@ -1,7 +1,6 @@
 /* DeleteButton.css */
 
-.delete-button {
-  background-color: #ff5252; 
+.edit-button {
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -9,9 +8,9 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
+  margin-left: 1rem;
 }
 
-.delete-button:hover {
-  background-color: #e00000; 
+.edit-button:hover {
   transform: translateY(-2px);
 }

@@ -1,22 +1,23 @@
-#movieCarousel {
+#bookCarousel {
   margin: 2rem;
-  background-color: grey;
-  padding-bottom: 2rem;
+  background-color: white;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 1rem;
 }
 
 #noDataP {
   color: red;
 }
 
-h3 {
-  color: yellow;
-  margin-top: 5rem;
-}
-
-img {
+.backgroundImg {
+  z-index: -5;
   height: 40rem;
+  margin: auto;
   object-fit: contain;
-  background-color: darkgray;
+  display: block;
 }
 
 h5 {
@@ -29,4 +30,13 @@ p {
   color: black;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+#secondp {
+  margin-bottom: 12rem;
+}
+
+.spacer {
+  margin-bottom: 110px;
+  visibility: hidden; 
 }

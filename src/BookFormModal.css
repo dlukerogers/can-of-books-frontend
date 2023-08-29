@@ -10,6 +10,7 @@
 /* Style the form inside the modal */
 .form-group {
   margin-bottom: 2rem;
+  padding: 1rem;
 }
 
 .form-label {
@@ -25,10 +26,12 @@
 
 /* Style the form select element */
 .form-select {
-  width: 100%;
+  width: 96%;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.5rem;
+  margin: auto;
+  margin-bottom: 1rem;
 }
 
 /* Style the submit button */
