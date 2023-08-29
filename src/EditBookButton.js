@@ -4,12 +4,11 @@ import './EditBookButton.css'; // Import your custom styles for the button
 
 class EditBookButton extends React.Component {
   render() {
-    console.log(this.props.book._id)
     return (
       <Button
         variant="secondary"
         className='edit-button'
-        onClick={() => this.props.showUpdateForm(this.props.book._id)}
+        onClick={() => this.props.showUpdateForm(this.props.book)}
       >
         Edit Book
       </Button>
