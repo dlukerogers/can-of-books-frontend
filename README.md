@@ -34,6 +34,7 @@ Front-end: The user interface is developed using React, allowing users to intera
 8/29/2023 [Version 3.0.0] - Connected update task to backend server
 8/29/2023 [Version 3.0.1] - Fixed Edit button, added CSS
 8/29/2023 [Version 3.0.2] - Fixed Update form bugs
+09/02/2023 [Version 4.0.0] - Added in Authentication
 
 ## Estimates
 
@@ -86,6 +87,16 @@ Start time: 11:57am PST
 Finish time: 5:20pm PST
 
 Actual time needed to complete: 5 hours 23 minutes
+
+Name of feature: Authentication
+
+Estimate of time needed to complete: 2 hours
+
+Start time: Friday 1:00 p.m
+
+Finish time: Saturday 4:00 p.m
+
+Actual time needed to complete: 1 day and 3 hours
 
 ## Credit and Collaborations
 
