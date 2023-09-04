@@ -1,0 +1,15 @@
+/* LoginButton.css */
+.login-button {
+  background-color: #007bff; /* Blue color */
+  color: #fff; /* White text color */
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+
+.login-button-container {
+  text-align: center; /* Center align the button */
+  margin-top: 20px; /* Add some top margin for spacing */
+}

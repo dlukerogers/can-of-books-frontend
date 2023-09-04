@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import canOfBooks from './img/can-of-books.png';
+import AuthButtons from './AuthButtons';
 import './Header.css';
 
 class Header extends React.Component {
@@ -14,7 +15,9 @@ class Header extends React.Component {
           <NavItem><Link to='/' className='nav-link'>Home</Link></NavItem>
           {/* PLACEHOLDER: render a navigation link to the about page */}
           <NavItem><Link to='/about' className='nav-link'>About Us</Link></NavItem>
+          <NavItem><Link to='/profile' className='nav-link'>Profile</Link></NavItem>
         </div>
+        <AuthButtons/>
       </Navbar>
     );
   }
