@@ -42,6 +42,8 @@ class BestBooks extends React.Component {
         // let results = await axios.get(`${SERVER}/books`);
         this.setState({
           books: results.data,
+        }, () => {
+          console.log('state updated', this.state.books);
         });
       } catch (error) {
         console.log('We have an error;', error.response.data);
@@ -51,8 +53,16 @@ class BestBooks extends React.Component {
 
   postBooks = async (newBook) => {
     try{
+       // get token
+       const res = await this.props.auth0.getIdTokenClaims();
+       // extract the raw token
+       const jwt = res.__raw;
+       console.log(jwt);
+       const config = {
+         headers: {"Authorization" : `Bearer ${jwt}`}
+       }
       let url = `${SERVER}/books`;
-      let createdBook = await axios.post(url, newBook);
+      let createdBook = await axios.post(url, newBook, config);
       // this.getBooks();
       this.setState({
         books: [...this.state.books, createdBook.data]
@@ -135,7 +145,7 @@ class BestBooks extends React.Component {
 
   render() {
     /* TODO: render all the books in a Carousel */
-    console.log(this.props.auth0.user);
+    // console.log(this.props.auth0.user);
     return (
       <>
         <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
@@ -149,7 +159,7 @@ class BestBooks extends React.Component {
                     <h5>{book.title}</h5>
                     <p>{book.description}</p>
                     <p id='secondp'>Status: {book.status}</p>
-                    <p>{book._id}</p>
+                    {/* <p>{book._id}</p> */}
                     <DeleteButton className='delete-button'
                       book={book}
                       deleteBooks= {this.deleteBooks}
